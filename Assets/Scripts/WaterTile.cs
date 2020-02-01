@@ -11,6 +11,8 @@ public class WaterTile : MonoBehaviour {
     //controls intensity of hovering effect
     public float hoverAmount;
 
+    public LayerMask obstacleLayer;
+
 
     private void Start()
     {
@@ -28,5 +30,21 @@ public class WaterTile : MonoBehaviour {
     public void OnMouseExit()
     {
         transform.localScale -= Vector3.one * hoverAmount;
+    }
+
+    public bool IsClear()
+    {
+        // Casts invis circle
+        Collider2D obstacle = Physics2D.OverlapCircle(transform.position, 0.2f, obstacleLayer);
+        // if there's an obstacle on the tile
+        if (obstacle != null)
+        {
+            // tile is not clear
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

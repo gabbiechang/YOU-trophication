@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212068208587755924}
   - component: {fileID: 114890842635297002}
   - component: {fileID: 61070286362217280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +90,9 @@ MonoBehaviour:
   - {fileID: 21300016, guid: 3e0f11525c94a44279474013e76cedfb, type: 3}
   - {fileID: 21300018, guid: 3e0f11525c94a44279474013e76cedfb, type: 3}
   hoverAmount: 0.03
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &212068208587755924
 SpriteRenderer:
   m_ObjectHideFlags: 1
