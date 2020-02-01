@@ -8,6 +8,10 @@ public class WaterTile : MonoBehaviour {
     //array of type Sprite
     public Sprite[] tileGrapics;
 
+    //controls intensity of hovering effect
+    public float hoverAmount;
+
+
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -15,4 +19,14 @@ public class WaterTile : MonoBehaviour {
         rend.sprite = tileGrapics[randTile];
     }
 
+    //built in function; called automatically when mouse hovers over box collider
+    public void OnMouseEnter()
+    {
+        transform.localScale += Vector3.one * hoverAmount;
+    }
+
+    public void OnMouseExit()
+    {
+        transform.localScale -= Vector3.one * hoverAmount;
+    }
 }
