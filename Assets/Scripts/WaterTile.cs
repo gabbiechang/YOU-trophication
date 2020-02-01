@@ -11,6 +11,8 @@ public class WaterTile : MonoBehaviour {
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        int randTile = Random.Range(0, tileGrapics.Length);
+        rend.sprite = tileGrapics[randTile];
     }
 
 }
