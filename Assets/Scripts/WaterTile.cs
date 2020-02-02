@@ -13,12 +13,17 @@ public class WaterTile : MonoBehaviour {
 
     public LayerMask obstacleLayer;
 
+    public Color highlightedColor;
+    public bool isWalkable;
+    GameMaster gm;
 
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         int randTile = Random.Range(0, tileGrapics.Length);
         rend.sprite = tileGrapics[randTile];
+
+        gm = FindObjectOfType<GameMaster>();
     }
 
     //built in function; called automatically when mouse hovers over box collider
@@ -46,5 +51,19 @@ public class WaterTile : MonoBehaviour {
         {
             return true;
         }
+    }
+
+    public void Highlight()
+    {
+
+        rend.color = highlightedColor;
+        isWalkable = true;
+    }
+
+    public void Reset()
+    {
+        rend.color = Color.white;
+        isWalkable = false;
+        isCreatable = false;
     }
 }
