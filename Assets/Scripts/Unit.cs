@@ -20,6 +20,11 @@ public class Unit : MonoBehaviour {
 
     public GameObject weaponIcon;
 
+    public int health;
+    public int attackDamage;
+    public int defenseDamage;
+    public int armor;
+
     private void Start()
     {
         gm = FindObjectOfType<GameMaster>();
@@ -51,6 +56,49 @@ public class Unit : MonoBehaviour {
                 GetWalkableTiles();
             }
         }
+
+        Collider2D col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.15f);
+        Unit unit = col.GetComponent<Unit>(); // double check that what we clicked on is a unit
+        if (gm.selectedUnit != null)
+        {
+            if (gm.selectedUnit.enemiesInRange.Contains(unit) && !gm.selectedUnit.hasAttacked)
+            { // does the currently selected unit have in his list the enemy we just clicked on
+                gm.selectedUnit.Attack(unit);
+
+            }
+        }
+    }
+
+    void Attack(Unit enemy)
+    {
+        hasAttacked = true;
+
+        int enemyDamege = attackDamage - enemy.armor;
+        int myDamage = enemy.defenseDamage - armor;
+
+        if (enemyDamege >= 1)
+        {
+            enemy.health -= enemyDamege;
+        }
+
+        if (myDamage >= 1)
+        {
+            health -= myDamage;
+        }
+
+        if(enemy.health<=0)
+        {
+            Destroy(enemy.gameObject);
+            GetWalkableTiles();
+        }
+
+        if (health <= 0)
+        {
+            gm.ResetTiles();
+            Destroy(this.gameObject);
+        }
+
+
     }
 
     void GetWalkableTiles()
