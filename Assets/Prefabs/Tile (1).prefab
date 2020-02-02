@@ -89,10 +89,12 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 3e0f11525c94a44279474013e76cedfb, type: 3}
   - {fileID: 21300016, guid: 3e0f11525c94a44279474013e76cedfb, type: 3}
   - {fileID: 21300018, guid: 3e0f11525c94a44279474013e76cedfb, type: 3}
-  hoverAmount: 0.03
+  hoverAmount: 0.02
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
+  highlightedColor: {r: 0.01059096, g: 0.13207549, b: 0.020119159, a: 0.39215687}
+  isWalkable: 0
 --- !u!212 &212068208587755924
 SpriteRenderer:
   m_ObjectHideFlags: 1

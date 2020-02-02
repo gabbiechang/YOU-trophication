@@ -94,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1127993155185550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.957, y: -0.72, z: 0}
+  m_LocalPosition: {x: 3.04, y: -2.72, z: -1}
   m_LocalScale: {x: 4.0090528, y: 4.0090528, z: 4.0090528}
   m_Children:
   - {fileID: 4529805467703026}
@@ -156,6 +156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac60c80fdc8a4342b705da56a274e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 0
+  tileSpeed: 3
+  hasMoved: 0
+  moveSpeed: 10
 --- !u!114 &114888578453096728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce0700bec218465fb10bf3b3dc96c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedUnit: {fileID: 0}
 --- !u!212 &212867094469295526
 SpriteRenderer:
   m_ObjectHideFlags: 1
