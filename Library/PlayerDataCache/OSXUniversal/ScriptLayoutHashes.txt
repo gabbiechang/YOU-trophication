@@ -165,3 +165,6 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+606b873fe81b31a5c6661f32645af022 Assembly-CSharp.dll:.WaterTile
+8bb274e35ab87cd08d2fb32a3aa577f4 Assembly-CSharp.dll:.Unit
+9591b951ccbf4c43d2b6e8404a757031 Assembly-CSharp.dll:.GameMaster

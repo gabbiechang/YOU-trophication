@@ -12,6 +12,8 @@ public class Unit : MonoBehaviour {
 
     public float moveSpeed;
 
+    public int playerNumber;
+
     private void Start()
     {
         gm = FindObjectOfType<GameMaster>();
@@ -27,16 +29,19 @@ public class Unit : MonoBehaviour {
         }
         else
         {
-            if (gm.selectedUnit != null)
+            if (playerNumber == gm.playerTurn)
             {
-                gm.selectedUnit.selected = false;
+                if (gm.selectedUnit != null)
+                {
+                    gm.selectedUnit.selected = false;
+                }
+
+                selected = true;
+                gm.selectedUnit = this;
+
+                gm.ResetTiles();
+                GetWalkableTiles();
             }
-
-            selected = true;
-            gm.selectedUnit = this;
-
-            gm.ResetTiles();
-            GetWalkableTiles();
         }
     }
 
