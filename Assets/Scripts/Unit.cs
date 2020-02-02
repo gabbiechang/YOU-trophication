@@ -14,6 +14,12 @@ public class Unit : MonoBehaviour {
 
     public int playerNumber;
 
+    public int attackRange;
+    List<Unit> enemiesInRange = new List<Unit>();
+    public bool hasAttacked;
+
+    public GameObject weaponIcon;
+
     private void Start()
     {
         gm = FindObjectOfType<GameMaster>();
@@ -21,6 +27,7 @@ public class Unit : MonoBehaviour {
 
     private void OnMouseDown()
     {
+        ResetWeaponIcon();
         if (selected == true)
         {
             selected = false;
@@ -40,6 +47,7 @@ public class Unit : MonoBehaviour {
                 gm.selectedUnit = this;
 
                 gm.ResetTiles();
+                GetEnemies();
                 GetWalkableTiles();
             }
         }
@@ -66,6 +74,36 @@ public class Unit : MonoBehaviour {
         }
     }
 
+
+    void GetEnemies()
+    {
+
+        enemiesInRange.Clear();
+
+        foreach (Unit unit in FindObjectsOfType<Unit>())
+        {
+            if (Mathf.Abs(transform.position.x - unit.transform.position.x) + Mathf.Abs(transform.position.y - unit.transform.position.y) <= attackRange) // check is the enemy is near enough to attack
+            {
+                if (unit.playerNumber != gm.playerTurn && !hasAttacked)
+                { // make sure you don't attack your allies
+                    enemiesInRange.Add(unit);
+                    unit.weaponIcon.SetActive(true);
+                }
+
+            }
+        }
+    }
+
+
+    public void ResetWeaponIcon()
+    {
+        foreach (Unit unit in FindObjectsOfType<Unit>())
+        {
+            unit.weaponIcon.SetActive(false);
+        }
+    }
+
+
     public void Move(Vector2 tilePos)
     {
         gm.ResetTiles();
@@ -85,6 +123,8 @@ public class Unit : MonoBehaviour {
             yield return null;
         }
         hasMoved = true;
+        ResetWeaponIcon();
+        GetEnemies();
     }
 }
 
