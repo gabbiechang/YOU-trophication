@@ -64,6 +64,5 @@ public class WaterTile : MonoBehaviour {
     {
         rend.color = Color.white;
         isWalkable = false;
-        isCreatable = false;
     }
 }

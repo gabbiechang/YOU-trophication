@@ -43,12 +43,12 @@ public class Unit : MonoBehaviour {
             return;
         }
 
-        Tile[] tiles = FindObjectsOfType<WaTile>();
-        foreach (Tile tile in tiles)
+        WaterTile[] tiles = FindObjectsOfType<WaterTile>();
+        foreach (WaterTile tile in tiles)
         {
             if (Mathf.Abs(transform.position.x - tile.transform.position.x) + Mathf.Abs(transform.position.y - tile.transform.position.y) <= tileSpeed)
             { // how far he can move
-                if (tile.isClear() == true)
+                if (tile.IsClear() == true)
                 { // is the tile clear from any obstacles
                     tile.Highlight();
                 }
